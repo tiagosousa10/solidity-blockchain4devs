@@ -14,8 +14,9 @@ contract WrapedGold_ERC20 is ERC20 {
       despachanteAddress = _despachanteAddress;
    }
 
-   function despachanteTransfer(address from, address to, uint256 amount) public onlyDespachant returns (bool success) {
+   function despachanteTransfer(address from, address to, uint256 amount) public onlyDespachant returns (bool) {
       _transfer(from, to, amount);
+      return true;
    }
 
    modifier onlyDespachant() { // modifier to control access
