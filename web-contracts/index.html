@@ -1,0 +1,84 @@
+<html>
+<head>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: stretch;
+            margin: 20px;
+        }
+
+        div {
+            margin: 20px;
+        }
+
+        input {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 100%; display: flex; justify-content: center;">
+        <button onclick="connectMetamask()">Conectar a Metamask</button>
+    </div>
+
+    <div style="width: 100%; display: flex; justify-content: center;">
+        <label>Wallet Address:</label>
+        <label id="metamask" style="font-size: 14px; line-height: 20px; font-weight: bold; color: darkred;"></label>
+    </div>
+
+    <div style="display: flex; justify-content: center;">
+      <div>
+         <h1>Cadastrar Documento:</h1>
+
+         <input id="renavam_C" placeholder="Renavam" value="12345" />
+         <input id="placa_C" placeholder="Placa" value="abc1238" />
+         <input id="modelo_C" placeholder="Modelo" value="Gol" />
+         <input id="cor_C" placeholder="Cor" value="Branco" />
+         <input id="ano_C" placeholder="Ano" value="2020" />
+         <button onclick="cadastraDocumento()">Cadastrar</button>
+      </div>
+
+      <div>
+         <h1>Transferir Documento:</h1>
+
+         <input id="renavam_T" placeholder="Renavam" value="" />
+         <input id="placa_T" placeholder="Placa" value="" />
+         <input id="modelo_T" placeholder="Modelo" value="" />
+         <input id="cor_T" placeholder="Cor" value="" />
+         <input id="ano_T" placeholder="Ano" value="" />
+         <input id="destinatario_T" placeholder="Destinatario" >
+         <button onclick="TransfereDocumento()">Transfere Documento</button>
+      </div>     
+      </div>
+
+      <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+      <script src="./index.js"></script>
+      <script>
+         function cadastraDocumento() {
+            var renavam, placa, modelo, cor, ano;
+
+            renavam = document.getElementById("renavam_C").value;
+            placa = document.getElementById("placa_C").value;
+            modelo = document.getElementById("modelo_C").value;
+            cor = document.getElementById("cor_C").value;
+            ano = document.getElementById("ano_C").value;
+
+            cadastraDocumentoContrato(renavam, placa, modelo, cor, ano);
+         }
+
+         function TransfereDocumento() {
+            var renavam, placa, modelo, cor, ano;
+
+            renavam = document.getElementById("renavam_T").value;
+            placa = document.getElementById("placa_T").value;
+            modelo = document.getElementById("modelo_T").value;
+            cor = document.getElementById("cor_T").value;
+            ano = document.getElementById("ano_T").value;
+            destinatario = document.getElementById("destinatario_T").value;
+
+            TransfereDocumentoContrato(renavam, placa, modelo, cor, ano);
+         }
+      </script>
+    </body>
