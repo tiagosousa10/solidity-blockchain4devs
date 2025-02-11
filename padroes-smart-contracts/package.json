@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
     "dotenv": "^16.4.7",
     "hardhat": "^2.22.18"
   },

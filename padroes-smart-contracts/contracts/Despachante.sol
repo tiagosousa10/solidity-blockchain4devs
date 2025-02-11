@@ -6,8 +6,9 @@ contract Despachante {
     address pagamentoToken;
     address owner;
 
-        constructor() {
+        constructor(address _pgtoToken) {
             owner = msg.sender;
+            pagamentoToken = _pgtoToken;
         }
 
     struct DocumentoStruct {
